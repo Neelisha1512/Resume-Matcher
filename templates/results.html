@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Matching Results</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+        .card {
+            transition: transform 0.2s;
+            border-radius: 10px;
+        }
+        .card:hover {
+            transform: scale(1.02);
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .card-footer {
+            background-color: #f1f1f1;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .btn-back {
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Resume Matching Results</h1>
+        <hr>
+        
+        {% if resumes %}
+            {% for resume in resumes %}
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2 class="card-title">{{ resume[0]['name'] }}</h2>
+                    </div>
+                    <div class="card-body">
+                        <h3>Skills:</h3>
+                        <p>{{ resume[0]['parsed_data']['skills'] | join(', ') }}</p>
+                        <h3>Education:</h3>
+                        <p>{{ resume[0]['parsed_data']['education'] }}</p>
+                        <h3>Experience:</h3>
+                        <p>{{ resume[0]['parsed_data']['experience'] }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <p>Relevancy Score: {{ resume[1] }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No resumes found matching the job description.</p>
+        {% endif %}
+
+        <a href="/" class="btn btn-primary mt-3">Back to Job Description Submission</a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

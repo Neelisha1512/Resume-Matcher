@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Description Submission</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f4f8;
+        }
+        h1 {
+            color: #343a40;
+            margin-bottom: 30px;
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Submit Job Description</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="form-container">
+                    <form method="POST">
+                        <div class="mb-4">
+                            <label for="jd" class="form-label">Job Description</label>
+                            <textarea class="form-control" id="jd" name="jd" rows="8" required placeholder="Enter the job description here..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-submit w-100">Find Matching Resumes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
